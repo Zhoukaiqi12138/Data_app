@@ -4,8 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set()
 
-
-st.title('California Housing Data(1990) by Junjie Zheng')
+st.title('California Housing Data (1990) by Junjie Zheng')
 df = pd.read_csv('housing.csv')
 
 price_filter = st.slider('Minimal Median House Price', 0.0, 500001, 200000)
@@ -14,7 +13,8 @@ price_filter = st.slider('Minimal Median House Price', 0.0, 500001, 200000)
 location_type_filter = st.sidebar.multiselect(
      'Choose the location Type',
      df.ocean_proximity.unique(),  # options
-     df.ocean_proximity.unique())  # defaults
+     default=list(df.ocean_proximity.unique())  # defaults
+)
 
 # create a radio button
 income_level = st.sidebar.radio(
@@ -30,13 +30,14 @@ else:
     df = df[df['median_income'] >= 4.5]
 
 # filter by price
-df = df[df.edian_house_value >= price_filter]
+df = df[df['median_house_value'] >= price_filter]
 
-# filter by locationtype
+# filter by location type
 df = df[df.ocean_proximity.isin(location_type_filter)]
 
 # show dataframe
 st.subheader('See more filters in the slidebar:')
+st.dataframe(df)
 
 # show on map
 st.map(df)
