@@ -10,7 +10,7 @@ st.title('California Housing Data (1990)')
 df = pd.read_csv('housing.csv')
 
 
-population_filter = st.slider('Minimal Median House Price:', 0, 500001, 20000)  # min, max, default
+population_filter = st.slider('Minimal Median House Price:', 0, 500001, 200000)  # min, max, default
 # Multi-select for ocean proximity
 type_filter = st.sidebar.multiselect(
     'Choose the location type',
