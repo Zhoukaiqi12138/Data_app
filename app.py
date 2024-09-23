@@ -30,7 +30,7 @@ else:
     df = df[df['median_income'] >= 4.5]
 
 # filter by price
-df = df[df.population >= price_filter]
+df = df[df.edian_house_value >= price_filter]
 
 # filter by locationtype
 df = df[df.ocean_proximity.isin(location_type_filter)]
