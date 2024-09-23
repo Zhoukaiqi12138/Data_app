@@ -35,9 +35,6 @@ df = df[df['median_house_value'] >= price_filter]
 # filter by location type
 df = df[df.ocean_proximity.isin(location_type_filter)]
 
-# show dataframe
-st.subheader('See more filters in the slidebar:')
-st.dataframe(df)
 
 # show on map
 st.map(df)
